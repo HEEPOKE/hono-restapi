@@ -1,7 +1,10 @@
-import { serve } from '@hono/node-server'
-import { Hono } from 'hono'
+import { serve } from "@hono/node-server";
+import createServer from "./server";
+import config from "./config/config";
 
-const app = new Hono()
-app.get('/', (c) => c.text('Hello Hono!'))
+const port = parseInt(config.PORT ?? "6476");
 
-serve(app)
+serve({
+  fetch: createServer().fetch,
+  port,
+});
