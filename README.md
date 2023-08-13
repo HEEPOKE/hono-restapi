@@ -12,10 +12,16 @@ cp .env.example .env
 yarn
 ```
 
-### RUN
+## RUN
 
 - use nodemon
 
 ```bash
 yarn dev
+```
+
+## Migrate DB
+
+```bash
+npx prisma migrate dev --name init
 ```

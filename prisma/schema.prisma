@@ -6,3 +6,23 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Account {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique @db.VarChar(255)
+  password  String   @db.VarChar(255)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      User?
+}
+
+model User {
+  id         Int      @id @default(autoincrement())
+  first_name String   @db.VarChar(255)
+  last_name  String   @db.VarChar(255)
+  tel        String   @unique @db.VarChar(100)
+  account_id Int      @unique
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  account    Account  @relation(fields: [account_id], references: [id])
+}
