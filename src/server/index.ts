@@ -14,12 +14,12 @@ function createServer() {
     credentials: true,
   };
 
+  app.use("*", prettyJSON());
+  app.use("*", logger());
   app.get("/", (c) => {
     return c.json({ message: "Welcome" });
   });
   app.use("/apis/*", cors(corsOptions));
-  app.use("*", logger());
-  app.use("*", prettyJSON());
   app.showRoutes();
 
   return app;
