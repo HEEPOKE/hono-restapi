@@ -5,6 +5,9 @@ async function listAccount() {
     select: {
       id: true,
       email: true,
+      first_name: true,
+      last_name: true,
+      tel: true,
       createdAt: true,
       updatedAt: true,
     },
