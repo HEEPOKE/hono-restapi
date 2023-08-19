@@ -27,7 +27,7 @@ async function AccountListController(c: Context) {
         service: ConstantService.ACCOUNT_SERVICE,
         description: `account list err :: ${err}`,
       },
-      data: null,
+      data: [],
     };
 
     return c.json(response, 500);
