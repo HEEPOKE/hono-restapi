@@ -34,8 +34,8 @@ async function AccountListController(c: Context) {
   }
 }
 
-const AccountController = {
+const AccountControllers = {
   list: AccountListController,
 };
 
-export default AccountController;
+export default AccountControllers;
