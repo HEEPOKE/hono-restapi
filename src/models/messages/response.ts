@@ -1,11 +1,7 @@
-interface StatusMessage {
-  code: string;
-  message: string;
-  service: string;
-  description: string;
-}
+import StatusMessage from "../StatusModel";
 
 export default interface ResponseMessage {
   status: StatusMessage;
   data: any;
+  error?: any;
 }
